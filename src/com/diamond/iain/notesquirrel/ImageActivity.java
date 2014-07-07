@@ -6,13 +6,19 @@ import java.util.Locale;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Point;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -41,8 +47,31 @@ public class ImageActivity extends Activity implements OnTouchListener {
 
 		ImageView image = (ImageView) findViewById(R.id.touch_image);
 		image.setOnTouchListener(this);
+
 	}
 	
+	@Override
+	protected void onPause() {
+		super.onPause();
+
+		Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.squirrel);
+		
+		NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
+		.setSmallIcon(R.drawable.runningsquirrel)
+		.setLargeIcon(bm)
+		.setContentTitle("Click to resume")
+		.setContentText("Note Squirrel")
+		.setAutoCancel(true);
+		
+		Intent resultIntent[] = new Intent[1];
+		resultIntent[0] = new Intent(this, ImageActivity.class);
+		PendingIntent pi = PendingIntent.getActivities(this, 0, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+		mBuilder.setContentIntent(pi);
+		NotificationManager mNotificationManager = 
+				(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+		mNotificationManager.notify(0, mBuilder.build());		
+	}
+
 	@Override
 	protected void onResume() {
 		super.onResume();
