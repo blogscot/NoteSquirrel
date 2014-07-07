@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Note Squirrel</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="button_save">Save</string>
+    <string name="enter_your_text_here">Enter your text here</string>
+    <string name="file_saved_successfully">File Saved Successfully</string>
+    <string name="title_activity_image">ImageActivity</string>
+    <string name="password_image">Password Image</string>
+    <string name="points_stored">Points stored</string>
+    <string name="access_denied">Access Denied</string>
+    <string name="lock">Lock</string>
+    <string name="reset_passpoints">Reset Passpoints</string>
+
+</resources>
