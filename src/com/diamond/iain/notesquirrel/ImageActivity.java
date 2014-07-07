@@ -57,7 +57,7 @@ public class ImageActivity extends Activity implements OnTouchListener {
 		Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.squirrel);
 		
 		NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
-		.setSmallIcon(R.drawable.runningsquirrel)
+		.setSmallIcon(R.drawable.smallsquirrel)
 		.setLargeIcon(bm)
 		.setContentTitle("Click to resume")
 		.setContentText("Note Squirrel")
